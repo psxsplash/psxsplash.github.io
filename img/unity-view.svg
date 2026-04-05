@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect fill="#1a1a2e" width="1600" height="900"/>
+  <rect fill="#25253a" x="0" y="0" width="280" height="900"/>
+  <rect fill="#2d2d44" x="0" y="0" width="280" height="40"/>
+  <text fill="#7c7c9a" x="16" y="26" font-family="sans-serif" font-size="14" font-weight="600">HIERARCHY</text>
+  <rect fill="#35354d" x="12" y="56" width="256" height="24" rx="3"/>
+  <text fill="#b0b0cc" x="32" y="73" font-family="sans-serif" font-size="12">▸ Main Camera</text>
+  <rect fill="#35354d" x="12" y="86" width="256" height="24" rx="3"/>
+  <text fill="#b0b0cc" x="32" y="103" font-family="sans-serif" font-size="12">▸ PSXSceneExporter</text>
+  <rect fill="#4a3a8f" x="12" y="116" width="256" height="24" rx="3"/>
+  <text fill="#e0d0ff" x="32" y="133" font-family="sans-serif" font-size="12">▸ Room_Hallway</text>
+  <rect fill="#35354d" x="12" y="146" width="256" height="24" rx="3"/>
+  <text fill="#b0b0cc" x="32" y="163" font-family="sans-serif" font-size="12">▸ Room_LivingRoom</text>
+  <rect fill="#35354d" x="12" y="176" width="256" height="24" rx="3"/>
+  <text fill="#b0b0cc" x="32" y="193" font-family="sans-serif" font-size="12">▸ Portal_Door_01</text>
+  <rect fill="#35354d" x="12" y="206" width="256" height="24" rx="3"/>
+  <text fill="#b0b0cc" x="32" y="223" font-family="sans-serif" font-size="12">▸ PSXPlayer</text>
+  <rect fill="#35354d" x="12" y="236" width="256" height="24" rx="3"/>
+  <text fill="#b0b0cc" x="32" y="253" font-family="sans-serif" font-size="12">▸ Directional Light</text>
+  <!-- Viewport -->
+  <rect fill="#2a3045" x="280" y="0" width="1040" height="660"/>
+  <!-- Grid floor -->
+  <g stroke="#3a4565" stroke-width="0.5" opacity="0.4">
+    <line x1="280" y1="500" x2="1320" y2="500"/>
+    <line x1="280" y1="450" x2="1320" y2="480"/>
+    <line x1="280" y1="550" x2="1320" y2="520"/>
+    <line x1="600" y1="350" x2="600" y2="660"/>
+    <line x1="800" y1="300" x2="800" y2="660"/>
+    <line x1="1000" y1="350" x2="1000" y2="660"/>
+  </g>
+  <!-- Wireframe room -->
+  <g stroke="#5b8c3e" stroke-width="2" fill="none" opacity="0.7">
+    <rect x="450" y="280" width="460" height="300"/>
+    <line x1="450" y1="280" x2="520" y2="220"/>
+    <line x1="910" y1="280" x2="980" y2="220"/>
+    <line x1="520" y1="220" x2="980" y2="220"/>
+    <line x1="450" y1="580" x2="520" y2="520"/>
+    <line x1="910" y1="580" x2="980" y2="520"/>
+    <line x1="520" y1="520" x2="980" y2="520"/>
+  </g>
+  <!-- Portal -->
+  <rect x="680" y="320" width="4" height="200" fill="#e8943a" opacity="0.8"/>
+  <text fill="#e8943a" x="690" y="410" font-family="sans-serif" font-size="11" opacity="0.8">Portal</text>
+  <!-- Object cube -->
+  <g transform="translate(600, 420)">
+    <rect x="-25" y="-25" width="50" height="50" fill="#4466aa" stroke="#6688cc" stroke-width="1.5" opacity="0.8"/>
+    <text fill="#88aaee" x="-18" y="4" font-family="sans-serif" font-size="10">OBJ</text>
+  </g>
+  <!-- Gizmo -->
+  <g transform="translate(700, 400)">
+    <line x1="0" y1="0" x2="40" y2="0" stroke="#ff4444" stroke-width="2"/>
+    <line x1="0" y1="0" x2="0" y2="-40" stroke="#44ff44" stroke-width="2"/>
+    <line x1="0" y1="0" x2="-20" y2="20" stroke="#4444ff" stroke-width="2"/>
+  </g>
+  <!-- Toolbar -->
+  <rect fill="#25253a" x="280" y="660" width="1040" height="240"/>
+  <rect fill="#2d2d44" x="280" y="660" width="1040" height="36"/>
+  <text fill="#7c7c9a" x="296" y="684" font-family="sans-serif" font-size="12" font-weight="600">INSPECTOR</text>
+  <rect fill="#35354d" x="296" y="708" width="320" height="24" rx="3"/>
+  <text fill="#b0b0cc" x="312" y="725" font-family="sans-serif" font-size="12">PSXObjectExporter</text>
+  <rect fill="#35354d" x="296" y="740" width="200" height="20" rx="3"/>
+  <text fill="#7c7c9a" x="312" y="755" font-family="sans-serif" font-size="11">Bit Depth: 4-bit</text>
+  <rect fill="#35354d" x="296" y="768" width="200" height="20" rx="3"/>
+  <text fill="#7c7c9a" x="312" y="783" font-family="sans-serif" font-size="11">Collision: Static</text>
+  <!-- Inspector right side -->
+  <rect fill="#25253a" x="1320" y="0" width="280" height="900"/>
+  <rect fill="#2d2d44" x="1320" y="0" width="280" height="40"/>
+  <text fill="#7c7c9a" x="1336" y="26" font-family="sans-serif" font-size="14" font-weight="600">SCENE EXPORTER</text>
+  <rect fill="#35354d" x="1336" y="56" width="248" height="24" rx="3"/>
+  <text fill="#b0b0cc" x="1352" y="73" font-family="sans-serif" font-size="12">Type: Interior</text>
+  <rect fill="#35354d" x="1336" y="86" width="248" height="24" rx="3"/>
+  <text fill="#b0b0cc" x="1352" y="103" font-family="sans-serif" font-size="12">GTE Scale: 100.0</text>
+  <rect fill="#35354d" x="1336" y="116" width="248" height="24" rx="3"/>
+  <text fill="#b0b0cc" x="1352" y="133" font-family="sans-serif" font-size="12">Fog: Enabled</text>
+  <!-- "Unity Editor" watermark -->
+  <text fill="#5a5a7a" x="780" y="640" font-family="sans-serif" font-size="16" text-anchor="middle" opacity="0.5">Replace with your Unity screenshot</text>
+</svg>

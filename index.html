@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>psxsplash — Build PS1 Games in Unity</title>
+    <meta name="description" content="Build PlayStation 1 games using Unity as your scene editor. Design levels, write Lua scripts, export to real hardware or emulator with one click.">
+    <meta name="keywords" content="PlayStation 1, PS1, PSX, game engine, Unity, Lua, homebrew, retro gaming, psxsplash, splashedit, PS1 development">
+    <meta name="author" content="psxsplash">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#7c3aed">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="psxsplash — Build PS1 Games in Unity">
+    <meta property="og:description" content="Design scenes in Unity, write Lua scripts, and export to real PlayStation 1 hardware or emulator with one click.">
+    <meta property="og:image" content="https://psxsplash.github.io/website/img/logo.png">
+    <meta property="og:url" content="https://psxsplash.github.io">
+    <meta property="og:site_name" content="psxsplash">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="psxsplash — Build PS1 Games in Unity">
+    <meta name="twitter:description" content="Design scenes in Unity, write Lua scripts, and export to real PlayStation 1 hardware or emulator with one click.">
+    <meta name="twitter:image" content="https://psxsplash.github.io/website/img/logo.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="apple-touch-icon" href="img/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ==================== NAV ==================== -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="#" class="nav__logo">
+                <img src="img/logo.png" alt="psxsplash" class="nav__logo-img">
+                <span>psx<strong>splash</strong></span>
+            </a>
+            <div class="nav__links" id="navLinks">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#get-started">Get Started</a>
+                <a href="#lua">Lua API</a>
+                <a href="#community">Community</a>
+                <a href="https://psxsplash.github.io/docs/latest/" class="nav__cta" target="_blank" rel="noopener">Documentation &rarr;</a>
+            </div>
+            <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <header class="hero">
+        <div class="hero__bg">
+            <div class="hero__grid"></div>
+            <div class="hero__glow hero__glow--purple"></div>
+            <div class="hero__glow hero__glow--amber"></div>
+        </div>
+        <div class="hero__inner">
+            <div class="hero__content">
+                <div class="hero__badge">PlayStation 1 Development</div>
+                <h1 class="hero__title">
+                    Build <span class="hero__accent">PS1 Games</span><br>
+                    in Unity
+                </h1>
+                <p class="hero__subtitle">
+                    Design scenes in Unity's editor. Write game logic in Lua. Export to real PlayStation 1 hardware or emulator with a single click.
+                </p>
+                <div class="hero__actions">
+                    <a href="https://github.com/psxsplash/splashedit/releases" class="btn btn--primary" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Download splashedit
+                    </a>
+                    <a href="https://psxsplash.github.io/docs/latest/getting-started/quick-start/" class="btn btn--outline" target="_blank" rel="noopener">
+                        Quick Start Guide
+                    </a>
+                </div>
+                <div class="hero__stats">
+                    <div class="hero__stat">
+                        <span class="hero__stat-value">Lua</span>
+                        <span class="hero__stat-label">Scripting</span>
+                    </div>
+                    <div class="hero__stat-divider"></div>
+                    <div class="hero__stat">
+                        <span class="hero__stat-value">1-Click</span>
+                        <span class="hero__stat-label">Build & Run</span>
+                    </div>
+                    <div class="hero__stat-divider"></div>
+                    <div class="hero__stat">
+                        <span class="hero__stat-value">Real HW</span>
+                        <span class="hero__stat-label">+ Emulator</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero__compare">
+                <div class="compare__slider" id="compareSlider">
+                    <div class="compare__side compare__side--before">
+                        <img src="img/Unity.png" alt="Unity Editor View" draggable="false">
+                        <span class="compare__label compare__label--before">Unity Editor</span>
+                    </div>
+                    <div class="compare__side compare__side--after">
+                        <img src="img/psx.png" alt="PlayStation 1 View" draggable="false">
+                        <span class="compare__label compare__label--after">PlayStation 1</span>
+                    </div>
+                    <div class="compare__handle" id="compareHandle">
+                        <div class="compare__handle-line"></div>
+                        <div class="compare__handle-grip">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                        </div>
+                        <div class="compare__handle-line"></div>
+                    </div>
+                </div>
+                <p class="compare__hint">Drag to compare</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== ARCHITECTURE ==================== -->
+    <section class="arch" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__label">Architecture</span>
+                <h2 class="section-header__title">Two Parts, One Workflow</h2>
+                <p class="section-header__desc">SplashEdit is a Unity package for editing. psxsplash is the C++ PS1 runtime. You only touch Unity — the rest is automatic.</p>
+            </div>
+            <div class="arch__cards">
+                <div class="arch__card">
+                    <div class="arch__card-icon arch__card-icon--purple">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <h3>SplashEdit <span class="arch__card-tag">Unity Package</span></h3>
+                    <p>Editor tools, scene exporters, inspectors, texture quantization, VRAM packing, Lua compilation, and the Control Panel.</p>
+                    <ul class="arch__list">
+                        <li>Scene &amp; object exporters</li>
+                        <li>Texture atlas &amp; VRAM manager</li>
+                        <li>Cutscene &amp; animation editors</li>
+                        <li>UI canvas designer</li>
+                        <li>One-click build pipeline</li>
+                    </ul>
+                    <a href="https://github.com/psxsplash/splashedit" class="arch__link" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+                </div>
+                <div class="arch__arrow">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+                <div class="arch__card">
+                    <div class="arch__card-icon arch__card-icon--amber">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                    </div>
+                    <h3>psxsplash <span class="arch__card-tag">PS1 Runtime</span></h3>
+                    <p>C++ engine built on PSYQo. Handles rendering, collision, navigation, Lua execution, UI, audio, and scene management on real hardware.</p>
+                    <ul class="arch__list">
+                        <li>GTE-accelerated 3D renderer</li>
+                        <li>Room/portal &amp; BVH culling</li>
+                        <li>SPU audio playback</li>
+                        <li>Embedded Lua VM</li>
+                        <li>Navigation mesh traversal</li>
+                    </ul>
+                    <a href="https://github.com/psxsplash/psxsplash" class="arch__link" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FEATURES ==================== -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__label">Features</span>
+                <h2 class="section-header__title">Everything You Need</h2>
+                <p class="section-header__desc">From scene design to disc image — SplashEdit covers the full PS1 development pipeline.</p>
+            </div>
+            <div class="features__grid">
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    </div>
+                    <h3>Visual Scene Editing</h3>
+                    <p>Place objects, set up rooms, configure portals, and preview your PS1 scene directly in Unity's editor.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h3>Texture Quantization</h3>
+                    <p>Automatic Floyd-Steinberg dithering to 4-bit, 8-bit, or 16-bit color. VRAM packing with texture deduplication.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
+                    </div>
+                    <h3>Lua Scripting</h3>
+                    <p>Full event-driven scripting API. Entities, camera, UI, audio, cutscenes, persistence, input — all from Lua.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <h3>UI System</h3>
+                    <p>Canvases with images, text, progress bars, and custom bitmap fonts. Full Lua control over visibility, color, and position.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                    </div>
+                    <h3>Cutscenes &amp; Animations</h3>
+                    <p>Keyframed tracks with easing. Camera, object, UI, and FOV control. Audio events. Editor preview with scrubbing.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zm-18 0a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>
+                    </div>
+                    <h3>PS1 Audio</h3>
+                    <p>Automatic conversion to SPU ADPCM format. 24 simultaneous voices with volume and panning control.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    </div>
+                    <h3>Navigation Mesh</h3>
+                    <p>Auto-generated nav mesh via DotRecast. Player walking, collision with static and dynamic objects, trigger volumes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </div>
+                    <h3>Room/Portal Culling</h3>
+                    <p>Interior occlusion system with per-room cells and indexed portal references. Only visible rooms are rendered.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+                    </div>
+                    <h3>One-Click Build</h3>
+                    <p>Build to PCSX-Redux emulator, real hardware via serial (Unirom), or a full ISO disc image. All from one button.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    </div>
+                    <h3>Multi-Scene</h3>
+                    <p>Multiple scenes with seamless loading. Persistent key-value storage survives scene transitions. Loading screens included.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+                    </div>
+                    <h3>Vertex Color Modes</h3>
+                    <p>Choose baked lighting, flat color, or mesh vertex colors per object. Full control over your PS1 art style.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                    </div>
+                    <h3>Distance Fog</h3>
+                    <p>Silent Hill-style two-pass fog with per-vertex blending and additive overlay. Customizable density and color.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LUA SHOWCASE ==================== -->
+    <section class="lua" id="lua">
+        <div class="container">
+            <div class="lua__layout">
+                <div class="lua__info">
+                    <span class="section-header__label">Scripting</span>
+                    <h2 class="section-header__title">Game Logic in Lua</h2>
+                    <p>Write all your game logic in Lua with an event-driven architecture. No game loop needed — respond to interactions, collisions, button presses, and timers.</p>
+                    <div class="lua__apis">
+                        <div class="lua__api-tag">Entity</div>
+                        <div class="lua__api-tag">Camera</div>
+                        <div class="lua__api-tag">Player</div>
+                        <div class="lua__api-tag">Input</div>
+                        <div class="lua__api-tag">UI</div>
+                        <div class="lua__api-tag">Audio</div>
+                        <div class="lua__api-tag">Cutscene</div>
+                        <div class="lua__api-tag">Animation</div>
+                        <div class="lua__api-tag">Scene</div>
+                        <div class="lua__api-tag">Persist</div>
+                        <div class="lua__api-tag">Vec3</div>
+                        <div class="lua__api-tag">Controls</div>
+                        <div class="lua__api-tag">Timer</div>
+                        <div class="lua__api-tag">Debug</div>
+                    </div>
+                    <a href="https://psxsplash.github.io/docs/latest/lua/api-reference/" class="btn btn--outline" target="_blank" rel="noopener">Full API Reference &rarr;</a>
+                </div>
+                <div class="lua__code">
+                    <div class="terminal terminal--code">
+                        <div class="terminal__bar">
+                            <span class="terminal__dot terminal__dot--red"></span>
+                            <span class="terminal__dot terminal__dot--yellow"></span>
+                            <span class="terminal__dot terminal__dot--green"></span>
+                            <span class="terminal__title">collectible.lua</span>
+                        </div>
+                        <div class="terminal__body">
+<pre><code><span class="code-kw">local</span> collected = <span class="code-bool">false</span>
+
+<span class="code-kw">function</span> <span class="code-fn">onCollideWithPlayer</span>(self)
+    <span class="code-kw">if</span> collected <span class="code-kw">then return end</span>
+    collected = <span class="code-bool">true</span>
+
+    <span class="code-comment">-- Hide the object</span>
+    Entity.SetActive(self, <span class="code-bool">false</span>)
+
+    <span class="code-comment">-- Play a sound</span>
+    Audio.Play(<span class="code-str">"pickup"</span>, <span class="code-num">100</span>, <span class="code-num">64</span>)
+
+    <span class="code-comment">-- Update the score</span>
+    addScore(<span class="code-num">100</span>)
+    setStatus(<span class="code-str">"Got it!"</span>)
+<span class="code-kw">end</span></code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== GET STARTED ==================== -->
+    <section class="start" id="get-started">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__label">Get Started</span>
+                <h2 class="section-header__title">Up and Running in Minutes</h2>
+                <p class="section-header__desc">Five steps from zero to a running PS1 game.</p>
+            </div>
+            <div class="start__steps">
+                <div class="start__step">
+                    <div class="start__step-num">1</div>
+                    <div class="start__step-content">
+                        <h3>Install the Package</h3>
+                        <p>Download the <code>.tgz</code> from GitHub Releases. In Unity: <strong>Package Manager &rarr; Add package from tarball</strong>.</p>
+                    </div>
+                </div>
+                <div class="start__step">
+                    <div class="start__step-num">2</div>
+                    <div class="start__step-content">
+                        <h3>Open the Control Panel</h3>
+                        <p><strong>PlayStation 1 &rarr; SplashEdit Control Panel</strong> (Ctrl+Shift+L). This is your central hub.</p>
+                    </div>
+                </div>
+                <div class="start__step">
+                    <div class="start__step-num">3</div>
+                    <div class="start__step-content">
+                        <h3>Install Dependencies</h3>
+                        <p>Click "Install" for each tool in the Dependencies tab. SplashEdit downloads the MIPS compiler, Make, PCSX-Redux, and more.</p>
+                    </div>
+                </div>
+                <div class="start__step">
+                    <div class="start__step-num">4</div>
+                    <div class="start__step-content">
+                        <h3>Design Your Scene</h3>
+                        <p>Add a Scene Exporter, place objects with PSXObjectExporter, set up a player, and add your first room.</p>
+                    </div>
+                </div>
+                <div class="start__step">
+                    <div class="start__step-num">5</div>
+                    <div class="start__step-content">
+                        <h3>Build &amp; Run</h3>
+                        <p>Hit the <strong>BUILD &amp; RUN</strong> button. SplashEdit exports, compiles, and launches your game on the emulator.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="start__cta">
+                <a href="https://psxsplash.github.io/docs/latest/getting-started/installation/" class="btn btn--primary" target="_blank" rel="noopener">Full Installation Guide</a>
+                <a href="https://psxsplash.github.io/docs/latest/getting-started/quick-start/" class="btn btn--outline" target="_blank" rel="noopener">Quick Start Tutorial</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PLATFORMS ==================== -->
+    <section class="platforms">
+        <div class="container">
+            <div class="platforms__grid">
+                <div class="platform-card">
+                    <div class="platform-card__icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <h3>Emulator</h3>
+                    <p>Launch directly in PCSX-Redux with PCdrv file serving. Full debug console output.</p>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-card__icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><rect x="7" y="10" width="4" height="4" rx="0.5"/><rect x="13" y="10" width="4" height="4" rx="0.5"/><circle cx="12" cy="19" r="1"/></svg>
+                    </div>
+                    <h3>Real Hardware</h3>
+                    <p>Upload via serial to a real PlayStation 1 with Unirom. PCdrv file serving over the cable.</p>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-card__icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/></svg>
+                    </div>
+                    <h3>ISO Disc Image</h3>
+                    <p>Generate a <code>.bin/.cue</code> disc image ready to burn or load in any PS1 emulator.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== COMMUNITY ==================== -->
+    <section class="community" id="community">
+        <div class="container">
+            <div class="community__content">
+                <span class="section-header__label">Open Source</span>
+                <h2 class="section-header__title">Built in the Open</h2>
+                <p class="section-header__desc">SplashEdit and psxsplash are MIT licensed. Contributions, bug reports, and showcases are all welcome.</p>
+                <div class="community__links">
+                    <a href="https://github.com/psxsplash/splashedit" class="community__link" target="_blank" rel="noopener">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        <div>
+                            <strong>GitHub</strong>
+                            <span>Source code &amp; issues</span>
+                        </div>
+                    </a>
+                    <a href="https://psxsplash.github.io/docs/latest/" class="community__link" target="_blank" rel="noopener">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+                        <div>
+                            <strong>Documentation</strong>
+                            <span>Guides, API ref &amp; tutorials</span>
+                        </div>
+                    </a>
+                    <a href="https://discord.com/invite/Pp6fenHkxH" class="community__link" target="_blank" rel="noopener">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03z"/></svg>
+                        <div>
+                            <strong>Bandwidth Discord</strong>
+                            <span>Get help &amp; chat with the community</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__brand">
+                    <img src="img/logo.png" alt="psxsplash" class="nav__logo-img">
+                    <span>psx<strong>splash</strong></span>
+                </div>
+                <p class="footer__copy">MIT License &middot; Build PlayStation 1 games in Unity</p>
+                <div class="footer__links">
+                    <a href="https://github.com/psxsplash" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://psxsplash.github.io/docs/latest/" target="_blank" rel="noopener">Docs</a>
+                    <a href="https://discord.com/invite/Pp6fenHkxH" target="_blank" rel="noopener">Discord</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
