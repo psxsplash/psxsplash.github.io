@@ -538,6 +538,7 @@ img { max-width: 100%; display: block; }
     margin-bottom: 20px;
     transition: background 0.3s;
 }
+.feature-card p a { color: var(--purple-light); }
 .feature-card:hover .feature-card__icon { background: rgba(124, 58, 237, 0.15); }
 .feature-card h3 {
     font-size: 1.1rem; font-weight: 700;
