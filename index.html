@@ -143,6 +143,7 @@
                         <li>Texture atlas &amp; VRAM manager</li>
                         <li>Cutscene &amp; animation editors</li>
                         <li>UI canvas designer</li>
+                        <li>Sprite sheet &amp; tilemap painter</li>
                         <li>One-click build pipeline</li>
                     </ul>
                     <a href="https://github.com/psxsplash/splashedit" class="arch__link" target="_blank" rel="noopener">View on GitHub &rarr;</a>
@@ -155,13 +156,15 @@
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
                     </div>
                     <h3>psxsplash <span class="arch__card-tag">PS1 Runtime</span></h3>
-                    <p>C++ engine built on PSYQo. Handles rendering, collision, navigation, Lua execution, UI, audio, and scene management on real hardware.</p>
+                    <p>C++ engine built on PSYQo. Handles rendering, collision, navigation, Lua execution, UI, audio, networking, and scene management on real hardware.</p>
                     <ul class="arch__list">
                         <li>GTE-accelerated 3D renderer</li>
                         <li>Room/portal &amp; BVH culling</li>
                         <li>SPU audio playback</li>
                         <li>Embedded Lua VM</li>
-                        <li>Navigation mesh traversal</li>
+                        <li>Nav mesh &amp; NPC agents</li>
+                        <li>2D sprites &amp; tilemaps</li>
+                        <li>Serial multiplayer over SIO1</li>
                     </ul>
                     <a href="https://github.com/psxsplash/psxsplash" class="arch__link" target="_blank" rel="noopener">View on GitHub &rarr;</a>
                 </div>
@@ -197,7 +200,7 @@
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
                     </div>
                     <h3>Lua Scripting</h3>
-                    <p>Full event-driven scripting API. Entities, camera, UI, audio, cutscenes, persistence, input — all from Lua.</p>
+                    <p>Full event-driven scripting API. Entities, camera, UI, audio, cutscenes, sprites, agents, networking, persistence, input — all from Lua.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-card__icon">
@@ -226,6 +229,27 @@
                     </div>
                     <h3>Navigation Mesh</h3>
                     <p>Auto-generated nav mesh via DotRecast. Player walking, collision with static and dynamic objects, trigger volumes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </div>
+                    <h3>AI Agents</h3>
+                    <p>NPCs that walk the nav mesh on their own, with vision, hearing, patrol routes and a state machine. Lua callbacks fire when they spot a target, lose it, or arrive.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="2"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg>
+                    </div>
+                    <h3>Sprites &amp; Tilemaps</h3>
+                    <p>Animated sprites from sprite sheets, and tilemaps painted in the inspector with per-tile walkability. Enough for a 2D game, or a HUD in a 3D one.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+                    </div>
+                    <h3>Multiplayer</h3>
+                    <p>Serial multiplayer over SIO1: two consoles on a link cable, or many through <a href="https://github.com/psxsplash/psnl_server" target="_blank" rel="noopener">psnl_server</a>. Avatar replication and a reliable message channel.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-card__icon">
@@ -289,6 +313,11 @@
                         <div class="lua__api-tag">Controls</div>
                         <div class="lua__api-tag">Timer</div>
                         <div class="lua__api-tag">Debug</div>
+                        <div class="lua__api-tag">Actor</div>
+                        <div class="lua__api-tag">Agent</div>
+                        <div class="lua__api-tag">Sprite</div>
+                        <div class="lua__api-tag">Tile</div>
+                        <div class="lua__api-tag">Net</div>
                     </div>
                     <a href="https://psxsplash.github.io/docs/latest/lua/api-reference/" class="btn btn--outline" target="_blank" rel="noopener">Full API Reference &rarr;</a>
                 </div>
