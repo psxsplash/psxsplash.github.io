@@ -23,7 +23,8 @@ navLinks.querySelectorAll('a').forEach(link => {
 if ('IntersectionObserver' in window) {
     const selectors = [
         '.feature-card', '.start__step', '.community__link',
-        '.lua__info', '.lua__code', '.play__info', '.play .shot',
+        '.lua__info', '.lua__code', '.showcase__text', '.showcase .shot',
+        '.blocks .shot', '.blocks__point', '.mini-card', '.engine__fact',
         '.engine__tags', '.section-header'
     ];
     const observer = new IntersectionObserver((entries) => {
