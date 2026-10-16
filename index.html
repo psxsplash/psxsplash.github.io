@@ -44,6 +44,7 @@
                 <span>psx<strong>splash</strong></span>
             </a>
             <div class="nav__links" id="navLinks">
+                <a href="#blocks">Blocks</a>
                 <a href="#editor">Editor</a>
                 <a href="#engine">Engine</a>
                 <a href="#get-started">Get Started</a>
@@ -90,61 +91,150 @@
         </div>
     </header>
 
-    <!-- ==================== EDITOR ==================== -->
-    <section class="editor" id="editor">
+    <!-- ==================== BLOCKS ==================== -->
+    <section class="blocks" id="blocks">
         <div class="container">
             <div class="section-header">
-                <span class="section-header__label">The editor</span>
-                <h2 class="section-header__title">See the PS1 while you edit</h2>
-                <p class="section-header__desc">The editor shows what the console will do while you work, so problems turn up before you build.</p>
+                <span class="section-header__label">Scripting with blocks</span>
+                <h2 class="section-header__title">Build game logic from blocks</h2>
+                <p class="section-header__desc">The block editor is a full way to script a psxsplash game, on equal footing with Lua. The inspector offers New blocks and New Lua side by side; pick whichever suits the script.</p>
             </div>
-            <div class="features__grid">
-                <div class="feature-card">
-                    <div class="feature-card__icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                    </div>
-                    <h3>PS1 viewport</h3>
-                    <p>The scene view renders at 320x240 with 15-bit dithering and affine texture mapping. Switch to Clean when you need to see the geometry.</p>
+            <figure class="shot shot--wide">
+                <a href="img/feature-blocks.png"><img src="img/feature-blocks.png" alt="The block editor: a palette of block categories, two block stacks for a door and a crate on the canvas, the variables column and the generated Lua" width="960" height="650" loading="lazy"></a>
+            </figure>
+            <div class="blocks__points">
+                <div class="blocks__point">
+                    <h3>Events, control, objects, sound</h3>
+                    <p>The palette groups blocks into events, control, objects, sound and scenes, variables, operators, input and debug. Drag a block under a hat and it snaps into the stack.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-card__icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="1"/><line x1="7" y1="10" x2="7" y2="14"/><line x1="11" y1="10" x2="11" y2="14"/><line x1="15" y1="10" x2="15" y2="14"/></svg>
-                    </div>
-                    <h3>Memory budgets</h3>
-                    <p>VRAM, SPU RAM, main RAM and triangle count sit in the status bar and update as you add content.</p>
+                <div class="blocks__point">
+                    <h3>Picked from the scene</h3>
+                    <p>Object, sound and cutscene fields are chosen from lists of what the scene contains, so a name cannot be mistyped. Variables are made in their own column.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-card__icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                    </div>
-                    <h3>Texture checks</h3>
-                    <p>The inspector compares each source texture with its PS1 version and flags textures that fit a smaller bit depth, with a button to convert them.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-card__icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21 3 6"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
-                    </div>
-                    <h3>Scene overlays</h3>
-                    <p>Trigger, interact and navigation overlays are drawn in the scene view, so you can see where the player can walk.</p>
+                <div class="blocks__point">
+                    <h3>Lua you can read</h3>
+                    <p>The Lua a <code>.blocks</code> script turns into is shown beside the canvas as you edit, and that Lua is what runs on the console. Blocks that wait run as coroutines.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== PLAY ==================== -->
-    <section class="play">
+    <!-- ==================== EDITOR SHOWCASE ==================== -->
+    <section class="showcase" id="editor">
         <div class="container">
-            <div class="play__layout">
-                <div class="play__info">
-                    <span class="section-header__label">One click</span>
-                    <h2 class="section-header__title">Play, Run on hardware, Export</h2>
-                    <p><strong>Play</strong> builds the scene and boots it in the bundled pcsx-redux, shown in the Game panel next to the scene view.</p>
-                    <p><strong>Run on hardware</strong> boots the same build on a PlayStation. <strong>Export</strong> produces a disc image.</p>
+            <div class="section-header">
+                <span class="section-header__label">The editor</span>
+                <h2 class="section-header__title">Everything for a PS1 scene in one window</h2>
+                <p class="section-header__desc">Scripts, models, textures, UI and cutscenes are all edited in the same window, next to a view that draws like the console.</p>
+            </div>
+
+            <div class="showcase__row">
+                <div class="showcase__text">
+                    <span class="showcase__kicker">Lua</span>
+                    <h3>A Lua editor that knows the API</h3>
+                    <p>Lua scripts open in tabs beside the scene. Completion lists the psxsplash API with each function's signature and a one-line description, along with the locals and functions in scope.</p>
+                    <p>Syntax errors are marked on their line as you type. Find and Replace handles regex, case matching and replacing inside a selection.</p>
+                </div>
+                <figure class="shot">
+                    <a href="img/feature-lua.png"><img src="img/feature-lua.png" alt="The Lua editor showing completions for Entity.Get with signatures and a description of Entity.GetPosition" width="960" height="650" loading="lazy"></a>
+                </figure>
+            </div>
+
+            <div class="showcase__row showcase__row--flip">
+                <div class="showcase__text">
+                    <span class="showcase__kicker">Import</span>
+                    <h3>Models and textures</h3>
+                    <p>Drop a <code>.glb</code>, <code>.gltf</code>, <code>.fbx</code>, <code>.obj</code> or <code>.blend</code> file onto the editor (<code>.blend</code> needs Blender installed). Embedded textures come in with the model, and skinned rigs import from glTF and FBX.</p>
+                    <p>The inspector puts each texture next to the pixels the PS1 will draw, with its bit depth, palette use and VRAM cost. When a texture would keep every colour at 4 bpp, it says so and converts it in one click.</p>
+                </div>
+                <figure class="shot shot--narrow">
+                    <a href="img/feature-texture.png"><img src="img/feature-texture.png" alt="The inspector for a crate mesh: the texture could be 4 bpp, with a Convert to 4 bpp button and the source and PS1 versions side by side" width="352" height="452" loading="lazy"></a>
+                </figure>
+            </div>
+
+            <div class="showcase__row">
+                <div class="showcase__text">
+                    <span class="showcase__kicker">Viewport</span>
+                    <h3>See the PS1 while you edit</h3>
+                    <p>The scene view renders at 320x240 with 15-bit dithering and affine texture mapping. Switch to Clean when you need to see the geometry.</p>
+                    <p>VRAM, SPU RAM, main RAM and the triangle count sit in the status bar and update as you add content. The scene tree shows each mesh's triangles, and the viewport draws trigger, interact and navigation overlays.</p>
+                </div>
+                <figure class="shot">
+                    <a href="img/feature-viewport.webp"><img src="img/feature-viewport.webp" alt="The PS1 viewport showing the courtyard with navigation overlays, above the status bar with VRAM, SPU RAM, RAM and triangle counts" width="960" height="691" loading="lazy"></a>
+                </figure>
+            </div>
+
+            <div class="showcase__row showcase__row--flip">
+                <div class="showcase__text">
+                    <span class="showcase__kicker">Play</span>
+                    <h3>Play, Run on hardware, Export</h3>
+                    <p><strong>Play</strong> (F5) builds the scene and boots it in the bundled pcsx-redux, shown in the Game panel next to the scene view.</p>
+                    <p><strong>Run on hardware</strong> (Ctrl+F5) uploads the same build over serial to a PlayStation running Unirom or psxmon and shows its output. <strong>Export</strong> writes a disc image of every scene in the build list.</p>
                     <p>Build &gt; Performance Overlay adds an FPS counter and heap bar to the running game. Room Debug Overlay draws room wireframes.</p>
                 </div>
                 <figure class="shot">
-                    <img src="img/editor-play.png" alt="The psxsplash editor after pressing Play: the courtyard scene running in pcsx-redux in the Game panel" width="1600" height="960" loading="lazy">
+                    <a href="img/feature-play.webp"><img src="img/feature-play.webp" alt="The editor after pressing Play: the courtyard running in pcsx-redux in the Game panel beside the scene view" width="960" height="705" loading="lazy"></a>
                 </figure>
+            </div>
+
+            <div class="showcase__row">
+                <div class="showcase__text">
+                    <span class="showcase__kicker">UI</span>
+                    <h3>UI canvas editor</h3>
+                    <p>Lay out HUDs and menus on a 320x240 canvas from boxes, text, progress bars, lines and images, anchored to the screen edges. Text uses the system font or up to three of your own TTF, OTF or bitmap fonts.</p>
+                    <p>Elements are driven from Lua and from cutscene tracks, and a canvas can be the scene's loading screen. The editor warns when the console will draw an element differently from how it looks.</p>
+                </div>
+                <figure class="shot">
+                    <a href="img/feature-ui.png"><img src="img/feature-ui.png" alt="The UI canvas editor with a HUD: title bar, crate counter, HP bar and a prompt" width="960" height="661" loading="lazy"></a>
+                </figure>
+            </div>
+
+            <div class="showcase__row showcase__row--flip">
+                <div class="showcase__text">
+                    <span class="showcase__kicker">Timeline</span>
+                    <h3>Cutscenes and animations</h3>
+                    <p>Key camera, object, light, UI and rumble tracks on a timeline, with linear, step and ease curves, plus audio and skinned-animation events. Scrubbing poses the scene view at that frame.</p>
+                    <p>Lua starts them with <code>Cutscene.Play</code> and <code>Animation.Play</code>; up to eight animations run at once.</p>
+                </div>
+                <figure class="shot">
+                    <a href="img/feature-timeline.webp"><img src="img/feature-timeline.webp" alt="The timeline under the scene view, scrubbed to frame 61 of a cutscene with camera, crate and UI tracks" width="960" height="886" loading="lazy"></a>
+                </figure>
+            </div>
+
+            <h3 class="showcase__more">Also in the editor</h3>
+            <div class="mini__grid">
+                <div class="mini-card">
+                    <h4>Navigation and rooms</h4>
+                    <p>The export builds navigation regions and portals, and the viewport outlines them. Room and Portal components cull interiors room by room.</p>
+                </div>
+                <div class="mini-card">
+                    <h4>NPC agents</h4>
+                    <p>The Agent API moves NPCs to targets, follows patrol waypoints and gives them vision and hearing ranges.</p>
+                </div>
+                <div class="mini-card">
+                    <h4>Audio</h4>
+                    <p>WAV files are encoded to SPU ADPCM on export, and their size counts against SPU RAM in the status bar. Play clips with volume and pan from Lua or cutscenes.</p>
+                </div>
+                <div class="mini-card">
+                    <h4>Skinned meshes</h4>
+                    <p>Rigged models and their clips are baked to bone matrices at a rate you set. The inspector lists bones, triangles and each clip's size.</p>
+                </div>
+                <div class="mini-card">
+                    <h4>Lights</h4>
+                    <p>Lights bake into vertex colours, or run on the GTE at runtime with up to four per mesh. Light tracks animate them in cutscenes.</p>
+                </div>
+                <div class="mini-card">
+                    <h4>World streaming</h4>
+                    <p>One switch splits static geometry into regions on a grid and streams them from the disc. Collision, navigation and scripts stay resident.</p>
+                </div>
+                <div class="mini-card">
+                    <h4>Memory cards</h4>
+                    <p>Set the region, product code, save title and icon in the scene inspector. Lua saves and loads tables as standard memory card files.</p>
+                </div>
+                <div class="mini-card">
+                    <h4>Serial multiplayer</h4>
+                    <p>The Net API connects consoles over the serial port, by link cable or to a PC, and replicates players and shared objects.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -156,6 +246,20 @@
                 <span class="section-header__label">The engine</span>
                 <h2 class="section-header__title">psxsplash runs on the console</h2>
                 <p class="section-header__desc">A C++ engine built on PSYQo. It runs your game on real PS1 hardware or in an emulator, and an exported game only compiles in the subsystems its scenes use.</p>
+            </div>
+            <div class="engine__facts">
+                <div class="engine__fact">
+                    <h3>GTE rendering</h3>
+                    <p>Geometry goes through the GTE in fixed point. Scenes are culled against a BVH, or by rooms and portals once you add rooms.</p>
+                </div>
+                <div class="engine__fact">
+                    <h3>Loads from disc or PCdrv</h3>
+                    <p>The same game loads scenes from a CD-ROM image or over PCdrv from an emulator or serial cable.</p>
+                </div>
+                <div class="engine__fact">
+                    <h3>Only what you use</h3>
+                    <p>Subsystems a game does not use are left out of the binary. A script calling into one gets an error that names the feature.</p>
+                </div>
             </div>
             <ul class="engine__tags">
                 <li>Lua scripting</li>
@@ -178,7 +282,8 @@
             <div class="lua__layout">
                 <div class="lua__info">
                     <h3>Game logic in Lua</h3>
-                    <p>Scripts respond to events: collisions, interactions, button presses, timers. There is no game loop to write.</p>
+                    <p>Scripts respond to events: collisions, triggers, interactions, button presses, objects being enabled or destroyed. There is no game loop to write.</p>
+                    <p>The same events are the hats in the block editor, so a script can start as blocks and a teammate can read the Lua it makes.</p>
                     <a href="https://psxsplash.github.io/docs/" class="text-link">Lua API in the documentation &rarr;</a>
                 </div>
                 <div class="lua__code">
